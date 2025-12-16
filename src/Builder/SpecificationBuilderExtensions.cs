@@ -17,9 +17,9 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Specify a predicate that will be applied to the query
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
-    /// <param name="criteria"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
+    /// <param name="criteria">The predicate to apply to the query.</param>
     public static ISpecificationBuilder<T> Where<T>(
         this ISpecificationBuilder<T> specificationBuilder,
         Expression<Func<T, bool>> criteria)
@@ -28,9 +28,9 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Specify a predicate that will be applied to the query
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
-    /// <param name="criteria"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
+    /// <param name="criteria">The predicate to apply to the query.</param>
     /// <param name="condition">If false, the criteria won't be added.</param>
     public static ISpecificationBuilder<T> Where<T>(
         this ISpecificationBuilder<T> specificationBuilder,
@@ -48,9 +48,9 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Specify the query result will be ordered by <paramref name="orderExpression"/> in an ascending order
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
-    /// <param name="orderExpression"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
+    /// <param name="orderExpression">The field selector to order by.</param>
     public static IOrderedSpecificationBuilder<T> OrderBy<T>(
         this ISpecificationBuilder<T> specificationBuilder,
         Expression<Func<T, object?>> orderExpression)
@@ -59,9 +59,9 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Specify the query result will be ordered by <paramref name="orderExpression"/> in an ascending order
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
-    /// <param name="orderExpression"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
+    /// <param name="orderExpression">The field selector to order by.</param>
     /// <param name="condition">If false, the expression won't be added. The whole Order chain will be discarded.</param>
     public static IOrderedSpecificationBuilder<T> OrderBy<T>(
         this ISpecificationBuilder<T> specificationBuilder,
@@ -81,9 +81,9 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Specify the query result will be ordered by <paramref name="orderExpression"/> in a descending order
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
-    /// <param name="orderExpression"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
+    /// <param name="orderExpression">The field selector to order by.</param>
     public static IOrderedSpecificationBuilder<T> OrderByDescending<T>(
         this ISpecificationBuilder<T> specificationBuilder,
         Expression<Func<T, object?>> orderExpression)
@@ -92,9 +92,9 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Specify the query result will be ordered by <paramref name="orderExpression"/> in a descending order
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
-    /// <param name="orderExpression"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
+    /// <param name="orderExpression">The field selector to order by.</param>
     /// <param name="condition">If false, the expression won't be added. The whole Order chain will be discarded.</param>
     public static IOrderedSpecificationBuilder<T> OrderByDescending<T>(
         this ISpecificationBuilder<T> specificationBuilder,
@@ -116,10 +116,10 @@ public static class SpecificationBuilderExtensions
     /// This information is utilized to build Include function in the query, which ORM tools like Entity Framework use
     /// to include related entities (via navigation properties) in the query result.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TProperty"></typeparam>
-    /// <param name="specificationBuilder"></param>
-    /// <param name="includeExpression"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <typeparam name="TProperty">The related property to include.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
+    /// <param name="includeExpression">The navigation property to include.</param>
     public static IIncludableSpecificationBuilder<T, TProperty> Include<T, TProperty>(
         this ISpecificationBuilder<T> specificationBuilder,
         Expression<Func<T, TProperty>> includeExpression) where T : class
@@ -130,10 +130,10 @@ public static class SpecificationBuilderExtensions
     /// This information is utilized to build Include function in the query, which ORM tools like Entity Framework use
     /// to include related entities (via navigation properties) in the query result.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <typeparam name="TProperty"></typeparam>
-    /// <param name="specificationBuilder"></param>
-    /// <param name="includeExpression"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <typeparam name="TProperty">The related property to include.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
+    /// <param name="includeExpression">The navigation property to include.</param>
     /// <param name="condition">If false, the expression won't be added. The whole Include chain will be discarded.</param>
     public static IIncludableSpecificationBuilder<T, TProperty> Include<T, TProperty>(
         this ISpecificationBuilder<T> specificationBuilder,
@@ -155,9 +155,9 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Specify a collection of navigation properties, as strings, to include in the query.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
-    /// <param name="includeString"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
+    /// <param name="includeString">The navigation path to include.</param>
     public static ISpecificationBuilder<T> Include<T>(
         this ISpecificationBuilder<T> specificationBuilder,
         string includeString) where T : class
@@ -166,9 +166,9 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Specify a collection of navigation properties, as strings, to include in the query.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
-    /// <param name="includeString"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
+    /// <param name="includeString">The navigation path to include.</param>
     /// <param name="condition">If false, the include expression won't be added.</param>
     public static ISpecificationBuilder<T> Include<T>(
         this ISpecificationBuilder<T> specificationBuilder,
@@ -186,8 +186,8 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Specify a 'SQL LIKE' operations for search purposes
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     /// <param name="selector">the property to apply the SQL LIKE against</param>
     /// <param name="searchTerm">the value to use for the SQL LIKE</param>
     /// <param name="searchGroup">the index used to group sets of Selectors and SearchTerms together</param>
@@ -201,8 +201,8 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Specify a 'SQL LIKE' operations for search purposes
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     /// <param name="selector">the property to apply the SQL LIKE against</param>
     /// <param name="searchTerm">the value to use for the SQL LIKE</param>
     /// <param name="condition">If false, the expression won't be added.</param>
@@ -225,7 +225,7 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Specify the number of elements to return.
     /// </summary>
-    /// <param name="specificationBuilder"></param>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     /// <param name="take">number of elements to take</param>
     public static ISpecificationBuilder<T> Take<T>(
         this ISpecificationBuilder<T> specificationBuilder,
@@ -235,7 +235,7 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Specify the number of elements to return.
     /// </summary>
-    /// <param name="specificationBuilder"></param>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     /// <param name="take">number of elements to take</param>
     /// <param name="condition">If false, the value will be discarded.</param>
     public static ISpecificationBuilder<T> Take<T>(
@@ -256,8 +256,8 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Specify the number of elements to skip before returning the remaining elements.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     /// <param name="skip">number of elements to skip</param>
     public static ISpecificationBuilder<T> Skip<T>(
         this ISpecificationBuilder<T> specificationBuilder,
@@ -267,8 +267,8 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Specify the number of elements to skip before returning the remaining elements.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     /// <param name="skip">number of elements to skip</param>
     /// <param name="condition">If false, the value will be discarded.</param>
     public static ISpecificationBuilder<T> Skip<T>(
@@ -341,7 +341,7 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Must be called after specifying criteria
     /// </summary>
-    /// <param name="specificationName"></param>
+    /// <param name="specificationName">A unique name used to build the cache key.</param>
     /// <param name="args">Any arguments used in defining the specification</param>
     public static ICacheSpecificationBuilder<T> EnableCache<T>(
         this ISpecificationBuilder<T> specificationBuilder,
@@ -352,7 +352,7 @@ public static class SpecificationBuilderExtensions
     /// <summary>
     /// Must be called after specifying criteria
     /// </summary>
-    /// <param name="specificationName"></param>
+    /// <param name="specificationName">A unique name used to build the cache key.</param>
     /// <param name="args">Any arguments used in defining the specification</param>
     /// <param name="condition">If false, the caching won't be enabled.</param>
     public static ICacheSpecificationBuilder<T> EnableCache<T>(
@@ -382,7 +382,7 @@ public static class SpecificationBuilderExtensions
     /// If the entity instances are modified, this will be detected
     /// by the change tracker.
     /// </summary>
-    /// <param name="specificationBuilder"></param>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     public static ISpecificationBuilder<T> AsTracking<T>(
         this ISpecificationBuilder<T> specificationBuilder) where T : class
         => AsTracking(specificationBuilder, true);
@@ -391,7 +391,7 @@ public static class SpecificationBuilderExtensions
     /// If the entity instances are modified, this will be detected
     /// by the change tracker.
     /// </summary>
-    /// <param name="specificationBuilder"></param>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     /// <param name="condition">If false, the setting will be discarded.</param>
     public static ISpecificationBuilder<T> AsTracking<T>(
         this ISpecificationBuilder<T> specificationBuilder,
@@ -411,7 +411,7 @@ public static class SpecificationBuilderExtensions
     /// If the entity instances are modified, this will not be detected
     /// by the change tracker.
     /// </summary>
-    /// <param name="specificationBuilder"></param>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     public static ISpecificationBuilder<T> AsNoTracking<T>(
         this ISpecificationBuilder<T> specificationBuilder) where T : class
         => AsNoTracking(specificationBuilder, true);
@@ -420,7 +420,7 @@ public static class SpecificationBuilderExtensions
     /// If the entity instances are modified, this will not be detected
     /// by the change tracker.
     /// </summary>
-    /// <param name="specificationBuilder"></param>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     /// <param name="condition">If false, the setting will be discarded.</param>
     public static ISpecificationBuilder<T> AsNoTracking<T>(
         this ISpecificationBuilder<T> specificationBuilder,
@@ -443,8 +443,8 @@ public static class SpecificationBuilderExtensions
     /// This feature was introduced in EF Core 5.0. It only works when using Include
     /// for more info: https://docs.microsoft.com/en-us/ef/core/querying/single-split-queries
     /// </remarks>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     public static ISpecificationBuilder<T> AsSplitQuery<T>(
         this ISpecificationBuilder<T> specificationBuilder) where T : class
         => AsSplitQuery(specificationBuilder, true);
@@ -456,8 +456,8 @@ public static class SpecificationBuilderExtensions
     /// This feature was introduced in EF Core 5.0. It only works when using Include
     /// for more info: https://docs.microsoft.com/en-us/ef/core/querying/single-split-queries
     /// </remarks>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     /// <param name="condition">If false, the setting will be discarded.</param>
     public static ISpecificationBuilder<T> AsSplitQuery<T>(
         this ISpecificationBuilder<T> specificationBuilder,
@@ -479,8 +479,8 @@ public static class SpecificationBuilderExtensions
     /// <remarks>
     /// for more info: https://docs.microsoft.com/en-us/ef/core/change-tracking/identity-resolution#identity-resolution-and-queries
     /// </remarks>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     public static ISpecificationBuilder<T> AsNoTrackingWithIdentityResolution<T>(
         this ISpecificationBuilder<T> specificationBuilder) where T : class
         => AsNoTrackingWithIdentityResolution(specificationBuilder, true);
@@ -493,8 +493,8 @@ public static class SpecificationBuilderExtensions
     /// <remarks>
     /// for more info: https://docs.microsoft.com/en-us/ef/core/change-tracking/identity-resolution#identity-resolution-and-queries
     /// </remarks>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     /// <param name="condition">If false, the setting will be discarded.</param>
     public static ISpecificationBuilder<T> AsNoTrackingWithIdentityResolution<T>(
         this ISpecificationBuilder<T> specificationBuilder,
@@ -516,8 +516,8 @@ public static class SpecificationBuilderExtensions
     /// <remarks>
     /// for more info: https://docs.microsoft.com/en-us/ef/core/querying/filters
     /// </remarks>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     public static ISpecificationBuilder<T> IgnoreQueryFilters<T>(
         this ISpecificationBuilder<T> specificationBuilder) where T : class
         => IgnoreQueryFilters(specificationBuilder, true);
@@ -528,8 +528,8 @@ public static class SpecificationBuilderExtensions
     /// <remarks>
     /// for more info: https://docs.microsoft.com/en-us/ef/core/querying/filters
     /// </remarks>
-    /// <typeparam name="T"></typeparam>
-    /// <param name="specificationBuilder"></param>
+    /// <typeparam name="T">The entity type used by the specification.</typeparam>
+    /// <param name="specificationBuilder">The specification builder being configured.</param>
     /// <param name="condition">If false, the setting will be discarded.</param>
     public static ISpecificationBuilder<T> IgnoreQueryFilters<T>(
         this ISpecificationBuilder<T> specificationBuilder,

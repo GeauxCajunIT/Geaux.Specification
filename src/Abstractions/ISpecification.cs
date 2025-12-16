@@ -146,15 +146,15 @@ public interface ISpecification<T>
     /// Applies the query defined within the specification to the given objects.
     /// This is specially helpful when unit testing specification classes
     /// </summary>
-    /// <param name="entities">the list of entities to which the specification will be applied</param>
-    /// <returns></returns>
+    /// <param name="entities">The list of entities to which the specification will be applied.</param>
+    /// <returns>A filtered sequence of <typeparamref name="T"/> entities.</returns>
     IEnumerable<T> Evaluate(IEnumerable<T> entities);
 
     /// <summary>
     /// It returns whether the given entity satisfies the conditions of the specification.
     /// </summary>
-    /// <param name="entity">The entity to be validated</param>
-    /// <returns></returns>
+    /// <param name="entity">The entity to be validated.</param>
+    /// <returns><see langword="true"/> if the entity matches the specification; otherwise, <see langword="false"/>.</returns>
     bool IsSatisfiedBy(T entity);
 }
 
