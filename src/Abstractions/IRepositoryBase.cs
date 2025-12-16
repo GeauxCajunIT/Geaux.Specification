@@ -22,7 +22,7 @@ public interface IRepositoryBase<T> : IReadRepositoryBase<T> where T : class
     /// Adds an entity in the database.
     /// </summary>
     /// <param name="entity">The entity to add.</param>
-    /// <param name="cancellationToken"></param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
     /// <returns>
     /// A task that represents the asynchronous operation.
     /// The task result contains the <typeparamref name="T" />.
@@ -32,8 +32,8 @@ public interface IRepositoryBase<T> : IReadRepositoryBase<T> where T : class
     /// <summary>
     /// Adds the given entities in the database
     /// </summary>
-    /// <param name="entities"></param>
-    /// <param name="cancellationToken"></param>
+    /// <param name="entities">The collection of entities to add.</param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
     /// <returns>
     /// A task that represents the asynchronous operation.
     /// </returns>
@@ -50,7 +50,7 @@ public interface IRepositoryBase<T> : IReadRepositoryBase<T> where T : class
     /// Updates the given entities in the database
     /// </summary>
     /// <param name="entities">The entities to update.</param>
-    /// <param name="cancellationToken"></param>
+    /// <param name="cancellationToken">A token to cancel the operation.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
     Task UpdateRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken = default);
 
