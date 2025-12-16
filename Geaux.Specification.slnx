@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/Build/">
+    <File Path="Durectory.Package.props" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/Geaux.Specification.csproj" />
+  </Folder>
+</Solution>

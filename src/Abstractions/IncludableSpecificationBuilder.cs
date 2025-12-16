@@ -1,0 +1,26 @@
+﻿// // <copyright file="" company="GeauxCajunIT">
+// // Copyright (c) GeauxCajunIT. All rights reserved.
+// // </copyright>
+
+using Geaux.Specification.Builder;
+using Geaux.Specification.Core;
+
+namespace Geaux.Specification.Abstractions;
+
+public class IncludableSpecificationBuilder<T, TProperty> : IIncludableSpecificationBuilder<T, TProperty> where T : class
+{
+    public Specification<T> Specification { get; }
+    public bool IsChainDiscarded { get; set; }
+
+    public IncludableSpecificationBuilder(Specification<T> specification)
+        : this(specification, false)
+    {
+    }
+
+    public IncludableSpecificationBuilder(Specification<T> specification, bool isChainDiscarded)
+    {
+        Specification = specification;
+        IsChainDiscarded = isChainDiscarded;
+    }
+}
+
