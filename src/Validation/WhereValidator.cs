@@ -3,6 +3,7 @@
 // // </copyright>
 
 using Geaux.Specification.Abstractions;
+using Geaux.Specification.Expressions;
 
 namespace Geaux.Specification.Validation;
 
@@ -13,7 +14,7 @@ public class WhereValidator : IValidator
 
     public bool IsValid<T>(T entity, ISpecification<T> specification)
     {
-        foreach (var info in specification.WhereExpressions)
+        foreach (WhereExpressionInfo<T> info in specification.WhereExpressions)
         {
             if (info.FilterFunc(entity) == false) return false;
         }

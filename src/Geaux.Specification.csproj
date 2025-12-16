@@ -1,34 +1,36 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net8.0; net9.0</TargetFrameworks>
-    <LangVersion>12.0</LangVersion>
-    <Nullable>enable</Nullable>
-    
-    <AssemblyName>Geaux.Specification</AssemblyName>
-    <PackageId>Geaux.Specification</PackageId>
-    <Title>Geaux.Specification</Title>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>Brent Lee Rigsby</Authors>
-    <Company>GeauxCajunIT</Company>
-    <Description>A simple package with a base Specification class, for use in creating queries that work with Repository types.</Description>
-    <Summary>A simple package with a base Specification class, for use in creating queries that work with Repository types.</Summary>
-    <PackageTags>spec;specification;repository;ddd</PackageTags>
-    <Version>1.2.0</Version>
-    <PackageReleaseNotes>
-      * Added TFMs net8.0
-    </PackageReleaseNotes>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
-    <DocumentationFile>bin\$(Configuration)\Geaux.Specification.xml</DocumentationFile>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>net8.0; net9.0</TargetFrameworks>
+		<LangVersion>12.0</LangVersion>
+		<Nullable>enable</Nullable>
+
+		<AssemblyName>Geaux.Specification</AssemblyName>
+		<PackageId>Geaux.Specification</PackageId>
+		<Title>Geaux.Specification</Title>
+		<Version>1.2.0</Version>
+		<Authors>Brent Lee Rigsby</Authors>
+		<Company>GeauxCajunIT</Company>
+		<Description>Specification pattern abstractions for .NET. Provides ISpecification, evaluators, builders, and repository contracts.</Description>
+		<PackageTags>spec;specification;repository;ddd;clean-architecture</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/GeauxCajunIT/Geaux.Specification.git</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+		<PackageReleaseNotes>
+			* Added net8.0 and net9.0 target framework
+			* Improved repository abstractions and evaluators
+		</PackageReleaseNotes>
+	</PropertyGroup>
+
 	<ItemGroup>
-		<!-- If you use SourceLink, keep Version out of here (CPM will supply it) -->
-		<PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" />
+		<PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets ="All"/>
 	</ItemGroup>
 
-  <PropertyGroup>
-    <NoWarn>1701;1702;1591;1573;1712</NoWarn>
-  </PropertyGroup>
 </Project>

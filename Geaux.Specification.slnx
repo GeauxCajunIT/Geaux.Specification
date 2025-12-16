@@ -1,8 +1,12 @@
 <Solution>
-  <Folder Name="/Build/">
-    <File Path="Durectory.Package.props" />
+  <Folder Name="/docs/">
+    <File Path="docs/index.md" />
+    <File Path="docs/toc.yml" />
   </Folder>
   <Folder Name="/src/">
     <Project Path="src/Geaux.Specification.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Geaux.Specification.Tests/Geaux.Specification.Tests.csproj" />
   </Folder>
 </Solution>
