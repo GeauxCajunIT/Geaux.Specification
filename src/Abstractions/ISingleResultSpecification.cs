@@ -2,18 +2,8 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using System;
-
 namespace Geaux.Specification.Abstractions;
 
-/// <summary>
-/// A marker interface for specifications that are meant to return a single entity. Used to constrain methods
-/// that accept a Specification and return a single result rather than a collection of results.
-/// </summary>
-[Obsolete("Use ISingleResultSpecification<T> instead. This interface will be removed in a future version of Geaux.Specification.")]
-public interface ISingleResultSpecification
-{
-}
 
 /// <summary>
 /// Encapsulates query logic for <typeparamref name="T"/>. It is meant to return a single result.

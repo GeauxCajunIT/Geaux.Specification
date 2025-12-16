@@ -73,7 +73,7 @@ public static class SpecificationBuilderExtensions
             ((List<OrderExpressionInfo<T>>)specificationBuilder.Specification.OrderExpressions).Add(new OrderExpressionInfo<T>(orderExpression, OrderTypeEnum.OrderBy));
         }
 
-        var orderedSpecificationBuilder = new OrderedSpecificationBuilder<T>(specificationBuilder.Specification, !condition);
+        OrderedSpecificationBuilder<T> orderedSpecificationBuilder = new OrderedSpecificationBuilder<T>(specificationBuilder.Specification, !condition);
 
         return orderedSpecificationBuilder;
     }
@@ -106,7 +106,7 @@ public static class SpecificationBuilderExtensions
             ((List<OrderExpressionInfo<T>>)specificationBuilder.Specification.OrderExpressions).Add(new OrderExpressionInfo<T>(orderExpression, OrderTypeEnum.OrderByDescending));
         }
 
-        var orderedSpecificationBuilder = new OrderedSpecificationBuilder<T>(specificationBuilder.Specification, !condition);
+        OrderedSpecificationBuilder<T> orderedSpecificationBuilder = new OrderedSpecificationBuilder<T>(specificationBuilder.Specification, !condition);
 
         return orderedSpecificationBuilder;
     }
@@ -142,12 +142,12 @@ public static class SpecificationBuilderExtensions
     {
         if (condition)
         {
-            var info = new IncludeExpressionInfo(includeExpression, typeof(T), typeof(TProperty));
+            IncludeExpressionInfo info = new IncludeExpressionInfo(includeExpression, typeof(T), typeof(TProperty));
 
             ((List<IncludeExpressionInfo>)specificationBuilder.Specification.IncludeExpressions).Add(info);
         }
 
-        var includeBuilder = new IncludableSpecificationBuilder<T, TProperty>(specificationBuilder.Specification, !condition);
+        IncludableSpecificationBuilder<T, TProperty> includeBuilder = new IncludableSpecificationBuilder<T, TProperty>(specificationBuilder.Specification, !condition);
 
         return includeBuilder;
     }
@@ -373,7 +373,7 @@ public static class SpecificationBuilderExtensions
             specificationBuilder.Specification.CacheEnabled = true;
         }
 
-        var cacheBuilder = new CacheSpecificationBuilder<T>(specificationBuilder.Specification, !condition);
+        CacheSpecificationBuilder<T> cacheBuilder = new CacheSpecificationBuilder<T>(specificationBuilder.Specification, !condition);
 
         return cacheBuilder;
     }
@@ -543,4 +543,3 @@ public static class SpecificationBuilderExtensions
         return specificationBuilder;
     }
 }
-

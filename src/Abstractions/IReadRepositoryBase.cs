@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 namespace Geaux.Specification.Abstractions;
 
 /// <summary>
+/// Defines read‑only repository operations for entities of type <typeparamref name="T"/>. 
+/// Supports querying via the Specification pattern.
 /// <para>
 /// A <see cref="IRepositoryBase{T}" /> can be used to query instances of <typeparamref name="T" />.
 /// An <see cref="ISpecification{T}"/> (or derived) is used to encapsulate the LINQ queries against the database.

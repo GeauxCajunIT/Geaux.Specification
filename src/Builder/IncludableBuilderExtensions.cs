@@ -2,7 +2,6 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using Geaux.Specification.Abstractions;
 using Geaux.Specification.Expressions;
 using System;
 using System.Collections.Generic;
@@ -26,12 +25,12 @@ public static class IncludableBuilderExtensions
     {
         if (condition && !previousBuilder.IsChainDiscarded)
         {
-            var info = new IncludeExpressionInfo(thenIncludeExpression, typeof(TEntity), typeof(TProperty), typeof(TPreviousProperty));
+            IncludeExpressionInfo info = new IncludeExpressionInfo(thenIncludeExpression, typeof(TEntity), typeof(TProperty), typeof(TPreviousProperty));
 
             ((List<IncludeExpressionInfo>)previousBuilder.Specification.IncludeExpressions).Add(info);
         }
 
-        var includeBuilder = new IncludableSpecificationBuilder<TEntity, TProperty>(previousBuilder.Specification, !condition || previousBuilder.IsChainDiscarded);
+        IncludableSpecificationBuilder<TEntity, TProperty> includeBuilder = new IncludableSpecificationBuilder<TEntity, TProperty>(previousBuilder.Specification, !condition || previousBuilder.IsChainDiscarded);
 
         return includeBuilder;
     }
@@ -50,12 +49,12 @@ public static class IncludableBuilderExtensions
     {
         if (condition && !previousBuilder.IsChainDiscarded)
         {
-            var info = new IncludeExpressionInfo(thenIncludeExpression, typeof(TEntity), typeof(TProperty), typeof(IEnumerable<TPreviousProperty>));
+            IncludeExpressionInfo info = new IncludeExpressionInfo(thenIncludeExpression, typeof(TEntity), typeof(TProperty), typeof(IEnumerable<TPreviousProperty>));
 
             ((List<IncludeExpressionInfo>)previousBuilder.Specification.IncludeExpressions).Add(info);
         }
 
-        var includeBuilder = new IncludableSpecificationBuilder<TEntity, TProperty>(previousBuilder.Specification, !condition || previousBuilder.IsChainDiscarded);
+        IncludableSpecificationBuilder<TEntity, TProperty> includeBuilder = new IncludableSpecificationBuilder<TEntity, TProperty>(previousBuilder.Specification, !condition || previousBuilder.IsChainDiscarded);
 
         return includeBuilder;
     }

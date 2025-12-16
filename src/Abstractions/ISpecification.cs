@@ -34,6 +34,7 @@ public interface ISpecification<T, TResult> : ISpecification<T>
     /// </summary>
     new Func<IEnumerable<TResult>, IEnumerable<TResult>>? PostProcessingAction { get; }
 
+
     new IEnumerable<TResult> Evaluate(IEnumerable<T> entities);
 }
 
@@ -43,6 +44,9 @@ public interface ISpecification<T, TResult> : ISpecification<T>
 /// <typeparam name="T">The type being queried against.</typeparam>
 public interface ISpecification<T>
 {
+    /// <summary> 
+    /// Gets the builder used to construct the query. 
+    /// </summary>
     ISpecificationBuilder<T> Query { get; }
 
     /// <summary>
