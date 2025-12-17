@@ -2,10 +2,6 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using Geaux.Specification.Abstractions;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace Geaux.Specification.Evaluators;
 
 public class WhereEvaluator : IEvaluator, IInMemoryEvaluator
@@ -17,7 +13,7 @@ public class WhereEvaluator : IEvaluator, IInMemoryEvaluator
 
     public IQueryable<T> GetQuery<T>(IQueryable<T> query, ISpecification<T> specification) where T : class
     {
-        foreach (var info in specification.WhereExpressions)
+        foreach (WhereExpressionInfo<T> info in specification.WhereExpressions)
         {
             query = query.Where(info.Filter);
         }
@@ -27,7 +23,7 @@ public class WhereEvaluator : IEvaluator, IInMemoryEvaluator
 
     public IEnumerable<T> Evaluate<T>(IEnumerable<T> query, ISpecification<T> specification)
     {
-        foreach (var info in specification.WhereExpressions)
+        foreach (WhereExpressionInfo<T> info in specification.WhereExpressions)
         {
             query = query.Where(info.FilterFunc);
         }

@@ -2,13 +2,14 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net8.0; net9.0</TargetFrameworks>
+		<RootNamespace>Geaux.Specification</RootNamespace>
 		<LangVersion>12.0</LangVersion>
 		<Nullable>enable</Nullable>
 
 		<AssemblyName>Geaux.Specification</AssemblyName>
 		<PackageId>Geaux.Specification</PackageId>
 		<Title>Geaux.Specification</Title>
-		<Version>1.2.0</Version>
+		<Version>1.2.1</Version>
 		<Authors>Brent Lee Rigsby</Authors>
 		<Company>GeauxCajunIT</Company>
 		<Description>Specification pattern abstractions for .NET. Provides ISpecification, evaluators, builders, and repository contracts.</Description>
@@ -29,6 +30,10 @@
 		</PackageReleaseNotes>
 
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+
+		<PackageOutputPath>D:\local-nuget</PackageOutputPath>
+
+		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
 	<ItemGroup>

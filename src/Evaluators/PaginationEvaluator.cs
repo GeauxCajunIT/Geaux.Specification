@@ -2,10 +2,6 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using Geaux.Specification.Abstractions;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace Geaux.Specification.Evaluators;
 
 public class PaginationEvaluator : IEvaluator, IInMemoryEvaluator

@@ -1,6 +1,4 @@
-﻿using Geaux.Specification.Builder;
-using Geaux.Specification.Core;
-using Xunit;
+﻿using Xunit;
 
 namespace Geaux.Specification.Tests
 {

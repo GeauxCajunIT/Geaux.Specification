@@ -1,9 +1,4 @@
-﻿using Geaux.Specification.Abstractions;
-using Geaux.Specification.Enums;
-using Geaux.Specification.Expressions;
-using System.Linq;
-
-namespace Geaux.Specification.Evaluators
+﻿namespace Geaux.Specification.Evaluators
 {
     /// <summary>
     /// Default evaluator that applies specifications to IQueryable sources.

@@ -2,9 +2,6 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using Geaux.Specification.Abstractions;
-using System.Collections.Generic;
-
 namespace Geaux.Specification.Validation;
 
 public class SpecificationValidator : ISpecificationValidator
@@ -29,7 +26,7 @@ public class SpecificationValidator : ISpecificationValidator
 
     public virtual bool IsValid<T>(T entity, ISpecification<T> specification)
     {
-        foreach (var partialValidator in _validators)
+        foreach (IValidator partialValidator in _validators)
         {
             if (partialValidator.IsValid(entity, specification) == false) return false;
         }

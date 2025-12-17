@@ -1,6 +1,4 @@
-﻿using Geaux.Specification.Builder;
-using Geaux.Specification.Core;
-using Geaux.Specification.Evaluators; // <-- add this
+﻿using Geaux.Specification.Evaluators; // <-- add this
 using Xunit;
 
 namespace Geaux.Specification.Tests

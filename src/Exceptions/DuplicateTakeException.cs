@@ -2,8 +2,6 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using System;
-
 namespace Geaux.Specification.Exceptions;
 
 public class DuplicateTakeException : Exception

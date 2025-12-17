@@ -12,9 +12,6 @@ namespace Geaux.Specification.Builder;
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using Geaux.Specification.Abstractions;
-using Geaux.Specification.Core;
-
 /// <summary>
 /// 
 /// </summary>

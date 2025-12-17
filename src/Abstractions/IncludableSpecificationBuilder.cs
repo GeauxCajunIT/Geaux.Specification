@@ -1,6 +1,4 @@
-﻿using Geaux.Specification.Builder;
-using Geaux.Specification.Core;
-
+﻿namespace Geaux.Specification.Abstractions;
 /// <summary>
 /// Provides a builder for specifications that support include expressions.
 /// </summary>

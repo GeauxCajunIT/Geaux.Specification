@@ -2,15 +2,9 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using Geaux.Specification.Abstractions;
-using Geaux.Specification.Evaluators;
-using Geaux.Specification.Expressions;
-using Geaux.Specification.Validation;
-using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Geaux.Specification.Core;
+namespace Geaux.Specification;
 
 /// <inheritdoc cref="ISpecification{T, TResult}"/>
 public class Specification<T, TResult> : Specification<T>, ISpecification<T, TResult>

@@ -2,8 +2,6 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using System.Linq;
-
 namespace Geaux.Specification.Abstractions;
 
 /// <summary>

@@ -2,9 +2,7 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using Geaux.Specification.Abstractions;
-
-namespace Geaux.Specification.Core;
+namespace Geaux.Specification;
 
 /// <inheritdoc cref="ISingleResultSpecification{T}"/>
 public class SingleResultSpecification<T> : Specification<T>, ISingleResultSpecification<T>

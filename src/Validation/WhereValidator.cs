@@ -2,9 +2,6 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using Geaux.Specification.Abstractions;
-using Geaux.Specification.Expressions;
-
 namespace Geaux.Specification.Validation;
 
 public class WhereValidator : IValidator

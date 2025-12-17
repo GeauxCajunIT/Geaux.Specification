@@ -2,9 +2,7 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using Geaux.Specification.Abstractions;
-
-namespace Geaux.Specification.Core;
+namespace Geaux.Specification;
 
 public class SpecificationBuilder<T, TResult> : SpecificationBuilder<T>, ISpecificationBuilder<T, TResult>
 {

@@ -2,12 +2,6 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using Geaux.Specification.Abstractions;
-using Geaux.Specification.Enums;
-using Geaux.Specification.Exceptions;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace Geaux.Specification.Evaluators;
 
 public class OrderEvaluator : IEvaluator, IInMemoryEvaluator
@@ -28,7 +22,7 @@ public class OrderEvaluator : IEvaluator, IInMemoryEvaluator
             }
 
             IOrderedQueryable<T>? orderedQuery = null;
-            foreach (var orderExpression in specification.OrderExpressions)
+            foreach (OrderExpressionInfo<T> orderExpression in specification.OrderExpressions)
             {
                 if (orderExpression.OrderType == OrderTypeEnum.OrderBy)
                 {
@@ -68,7 +62,7 @@ public class OrderEvaluator : IEvaluator, IInMemoryEvaluator
             }
 
             IOrderedEnumerable<T>? orderedQuery = null;
-            foreach (var orderExpression in specification.OrderExpressions)
+            foreach (OrderExpressionInfo<T> orderExpression in specification.OrderExpressions)
             {
                 if (orderExpression.OrderType == OrderTypeEnum.OrderBy)
                 {

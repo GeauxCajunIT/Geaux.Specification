@@ -4,10 +4,10 @@
     <File Path="docs/toc.yml" />
   </Folder>
   <Folder Name="/src/">
-    <Project Path="../Geaux.SharedKernal/src/Geaux.SharedKernal.csproj" />
     <Project Path="src/Geaux.Specification.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests/Geaux.Specification.Tests/Geaux.Specification.Tests.csproj" />
   </Folder>
+  <Project Path="../Geaux.Specification.EFCore/src/Geaux.Specification.EfCore.csproj" />
 </Solution>

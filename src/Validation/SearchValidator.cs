@@ -2,10 +2,6 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using Geaux.Specification.Abstractions;
-using Geaux.Specification.Builder;
-using System.Linq;
-
 namespace Geaux.Specification.Validation;
 
 public class SearchValidator : IValidator
@@ -15,7 +11,7 @@ public class SearchValidator : IValidator
 
     public bool IsValid<T>(T entity, ISpecification<T> specification)
     {
-        foreach (var searchGroup in specification.SearchCriterias.GroupBy(x => x.SearchGroup))
+        foreach (IGrouping<int, SearchExpressionInfo<T>> searchGroup in specification.SearchCriterias.GroupBy(x => x.SearchGroup))
         {
             if (searchGroup.Any(c => c.SelectorFunc(entity).Like(c.SearchTerm)) == false) return false;
         }

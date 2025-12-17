@@ -2,7 +2,6 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using System;
 using System.Linq.Expressions;
 
 namespace Geaux.Specification.Expressions;

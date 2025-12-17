@@ -2,9 +2,6 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using Geaux.Specification.Exceptions;
-using System;
-using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 namespace Geaux.Specification.Builder;
@@ -26,7 +23,7 @@ public static class SearchExtension
     private static bool SqlLike(this string input, string pattern)
     {
         // Escape special regex characters, excluding those handled separately
-        var regexPattern = Regex.Escape(pattern)
+        string regexPattern = Regex.Escape(pattern)
             .Replace("%", ".*")     // Translate SQL LIKE wildcard '%' to regex '.*'
             .Replace("_", ".")      // Translate SQL LIKE wildcard '_' to regex '.'
             .Replace(@"\[", "[")    // Unescape '[' as it's used for character classes/ranges
@@ -34,7 +31,7 @@ public static class SearchExtension
 
         // Ensure the pattern matches the entire string
         regexPattern = "^" + regexPattern + "$";
-        var regex = new Regex(regexPattern, RegexOptions.IgnoreCase);
+        Regex regex = new Regex(regexPattern, RegexOptions.IgnoreCase);
 
         return regex.IsMatch(input);
     }
@@ -46,20 +43,20 @@ public static class SearchExtension
     // More details in this issue https://github.com/ardalis/Specification/issues/390
     private static bool SqlLikeOption2(string str, string pattern)
     {
-        var isMatch = true;
-        var isWildCardOn = false;
-        var isCharWildCardOn = false;
-        var isCharSetOn = false;
-        var isNotCharSetOn = false;
-        var lastWildCard = -1;
-        var patternIndex = 0;
-        var set = new List<char>();
-        var p = '\0';
+        bool isMatch = true;
+        bool isWildCardOn = false;
+        bool isCharWildCardOn = false;
+        bool isCharSetOn = false;
+        bool isNotCharSetOn = false;
+        int lastWildCard = -1;
+        int patternIndex = 0;
+        List<char> set = new List<char>();
+        char p = '\0';
         bool endOfPattern;
 
-        for (var i = 0; i < str.Length; i++)
+        for (int i = 0; i < str.Length; i++)
         {
-            var c = str[i];
+            char c = str[i];
             endOfPattern = (patternIndex >= pattern.Length);
             if (!endOfPattern)
             {
@@ -93,12 +90,12 @@ public static class SearchExtension
                     set.Clear();
                     if (pattern[patternIndex + 1] == '-' && pattern[patternIndex + 3] == ']')
                     {
-                        var start = char.ToUpper(pattern[patternIndex]);
+                        char start = char.ToUpper(pattern[patternIndex]);
                         patternIndex += 2;
-                        var end = char.ToUpper(pattern[patternIndex]);
+                        char end = char.ToUpper(pattern[patternIndex]);
                         if (start <= end)
                         {
-                            for (var ci = start; ci <= end; ci++)
+                            for (char ci = start; ci <= end; ci++)
                             {
                                 set.Add(ci);
                             }
@@ -130,7 +127,7 @@ public static class SearchExtension
             }
             else if (isCharSetOn || isNotCharSetOn)
             {
-                var charMatch = (set.Contains(char.ToUpper(c)));
+                bool charMatch = (set.Contains(char.ToUpper(c)));
                 if ((isNotCharSetOn && charMatch) || (isCharSetOn && !charMatch))
                 {
                     if (lastWildCard >= 0) patternIndex = lastWildCard;
@@ -163,8 +160,8 @@ public static class SearchExtension
 
         if (isMatch && !endOfPattern)
         {
-            var isOnlyWildCards = true;
-            for (var i = patternIndex; i < pattern.Length; i++)
+            bool isOnlyWildCards = true;
+            for (int i = patternIndex; i < pattern.Length; i++)
             {
                 if (pattern[i] != '%')
                 {

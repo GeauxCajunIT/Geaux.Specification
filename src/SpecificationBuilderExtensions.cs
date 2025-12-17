@@ -2,16 +2,13 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using Geaux.Specification.Abstractions;
-using Geaux.Specification.Enums;
-using Geaux.Specification.Exceptions;
-using Geaux.Specification.Expressions;
-using System;
-using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Geaux.Specification.Builder;
 
+namespace Geaux.Specification;
+/// <summary>
+/// .
+/// </summary>
 public static class SpecificationBuilderExtensions
 {
     /// <summary>

@@ -1,6 +1,4 @@
-﻿using Geaux.Specification.Builder;
-using Geaux.Specification.Core;
-using Geaux.Specification.Validation;
+﻿using Geaux.Specification.Validation;
 using Xunit;
 
 namespace Geaux.Specification.Tests

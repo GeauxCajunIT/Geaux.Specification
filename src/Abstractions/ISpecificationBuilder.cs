@@ -2,8 +2,6 @@
 // // Copyright (c) GeauxCajunIT. All rights reserved.
 // // </copyright>
 
-using Geaux.Specification.Core;
-
 namespace Geaux.Specification.Abstractions;
 
 /// <summary>
