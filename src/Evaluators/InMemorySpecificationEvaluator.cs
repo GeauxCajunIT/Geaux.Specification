@@ -9,6 +9,9 @@ using System.Linq;
 
 namespace Geaux.Specification.Evaluators;
 
+/// <summary>
+/// 
+/// </summary>
 public class InMemorySpecificationEvaluator : IInMemorySpecificationEvaluator
 {
     // Will use singleton for default configuration. Yet, it can be instantiated if necessary, with default or provided evaluators.
@@ -36,9 +39,9 @@ public class InMemorySpecificationEvaluator : IInMemorySpecificationEvaluator
         if (specification.Selector is null && specification.SelectorMany is null) throw new SelectorNotFoundException();
         if (specification.Selector != null && specification.SelectorMany != null) throw new ConcurrentSelectorsException();
 
-        var baseQuery = Evaluate(source, (ISpecification<T>)specification);
+        IEnumerable<T> baseQuery = Evaluate(source, (ISpecification<T>)specification);
 
-        var resultQuery = specification.Selector != null
+        IEnumerable<TResult> resultQuery = specification.Selector != null
           ? baseQuery.Select(specification.Selector.Compile())
           : baseQuery.SelectMany(specification.SelectorMany!.Compile());
 
@@ -49,7 +52,7 @@ public class InMemorySpecificationEvaluator : IInMemorySpecificationEvaluator
 
     public virtual IEnumerable<T> Evaluate<T>(IEnumerable<T> source, ISpecification<T> specification)
     {
-        foreach (var evaluator in Evaluators)
+        foreach (IInMemoryEvaluator evaluator in Evaluators)
         {
             source = evaluator.Evaluate(source, specification);
         }
