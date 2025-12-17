@@ -27,10 +27,19 @@
 			* Added net8.0 and net9.0 target framework
 			* Improved repository abstractions and evaluators
 		</PackageReleaseNotes>
+
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets ="All"/>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageVersion Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
 	</ItemGroup>
 
 </Project>

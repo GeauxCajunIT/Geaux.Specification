@@ -4,6 +4,7 @@
     <File Path="docs/toc.yml" />
   </Folder>
   <Folder Name="/src/">
+    <Project Path="../Geaux.SharedKernal/src/Geaux.SharedKernal.csproj" />
     <Project Path="src/Geaux.Specification.csproj" />
   </Folder>
   <Folder Name="/tests/">
