@@ -6,8 +6,9 @@ using System.Linq.Expressions;
 
 
 namespace Geaux.Specification;
+
 /// <summary>
-/// .
+/// Provides a fluent API for composing specification queries through extension methods.
 /// </summary>
 public static class SpecificationBuilderExtensions
 {

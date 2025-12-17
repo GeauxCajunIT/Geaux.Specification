@@ -12,12 +12,15 @@ An optional companion package — **`Geaux.Specification.EntityFrameworkCore`** 
 ## **✨ Features**
 
 * 🧠 Encapsulate query logic into reusable specification classes
-* 🧩 Composable criteria (Where, OrderBy, Include, Search, Pagination, etc.)
-* 🔧 Specification Builders for fluent construction
+* 🧩 Fluent, composable criteria (Where, OrderBy/ThenBy, Include/ThenInclude, Search, Pagination)
+* 🪄 Projection support via `Selector`, `SelectorMany`, and post-processing hooks
+* 🧭 Tracking controls: `AsNoTracking`, `AsTracking`, `AsSplitQuery`, `AsNoTrackingWithIdentityResolution`, `IgnoreQueryFilters`
+* 🗄️ Cache hints with customizable cache keys
+* 🧰 Specification Builders for fluent construction
 * 🛠 Evaluators for applying specifications to query sources
 * 📦 Optional EF Core integration for `IQueryable<T>`
 * 🚀 Highly optimized & unit-test-friendly
-* 🧪 In-memory evaluator for testing
+* 🧪 In-memory evaluator for testing with parity to EF Core evaluators
 * ♻ Clean Architecture–friendly & repository-compatible
 
 ---
